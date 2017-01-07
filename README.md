@@ -21,9 +21,9 @@ Note: The email and password are passed unencrypted over the internet.  JSON res
   "data": {
     "id": "*snip*",        /* Integer ID number (of user?  of kettle?)
     "birthDay": null,
-    "firstName": "Phil",
+    "firstName": "Joe",    
     "middleName": null,
-    "givenName": "Cole",
+    "givenName": "Bloggs",
     "headImg": null,
     "lastLoginTime": "1483830657",            
     "lastLoginIp": "11.12.34.56",            /* IP address of last login */         
