@@ -2,7 +2,7 @@
 
 This readme documents the AppKettle API as at 04/01/2017
 
-Login
+## Login
 
 ```
 http://ak.myappkettle.com/v1/Api/App/login?passWord=*password*&userName=*username*&lang=en
@@ -53,4 +53,76 @@ Note: The email and password are passed unencrypted over the internet.  JSON res
     "userId": "123"                              /* Internal? User ID, integer number */
   }
 }
+```
+
+## GetMachineScheduleInfo
+
+```
+http://ak.myappkettle.com/v1/Api/App/getMachineScheduleInfo?lang=en&serialNumber=*serialnumber* 
+```
+
+* *lang* is en (maybe others are supported by untested)
+* *serialNumber* is the serial number, perhaps obtained by the app when Pairing with the kettle
+
+JSON response:
+
+```json
+{
+  "status": "400",
+  "statusCode": "MACERR0002",
+  "msg": "Schedule info not updated, please try again",
+  "data": ""
+}
+```
+
+## getUserFavouritesList
+
+```
+GET /v1/Api/App/getUserFavouritesList?userId=*userId*&token=*token*
+```
+
+* *userId* previously returned by a login request
+* login session *token* previously returned by a login request
+
+JSON response:
+
+```json
+{
+  "status": "200",
+  "statusCode": "EU0002",
+  "msg": "_FAVOURITES_GET_FAVOURITESLIST_SUCCESSFUL_",
+  "data": [
+    {
+      "id": "512",
+      "lastTime": "1483832123",
+      "appId": "",
+      "userId": "871",
+      "type": "1",
+      "name": "SmoothTea",
+      "temperatureUnit": "℃",
+      "temperature": "98",
+      "brewTimer": "2",
+      "status": "1",
+      "default": "0",
+      "favouritesSwitch": "1"
+    }
+  ]
+}
+```
+
+## getScheduleInfo 
+
+```
+GET /v1/Api/App/getScheduleInfo?macAddress=*serialNumber*&serialNumber=*serialNumber*&userId=*userId*&SSID=AK_House&token=2d2fe1fc6c75fc5f88ff703ada81f81f&lang=en
+```
+
+* *serialNumber* previously returned by a login request
+* *userId* previously returned by a login request
+* *SSID* from when setup in the App
+* login session *token* previously returned by a login request
+
+JSON response:
+
+```json
+TBC
 ```
