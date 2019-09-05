@@ -126,3 +126,37 @@ JSON response:
 ```json
 TBC
 ```
+
+## List of other URLs (as of yet undocumented)
+
+* https//ak.myappkettle.com/v3/api/app/addEnergyRecord
+* https//ak.myappkettle.com/v3/api/app/addifttt
+* https//ak.myappkettle.com/v3/api/app/addMachineInfo
+* https//ak.myappkettle.com/v3/api/app/addScheduleInfo
+* https//ak.myappkettle.com/v3/api/app/addUserFavourites
+* https//ak.myappkettle.com/v3/api/app/bindingTripartite
+* https//ak.myappkettle.com/v3/api/app/changePassWordByEmail
+* https//ak.myappkettle.com/v3/api/app/checkVersion/os_type/android
+* https//ak.myappkettle.com/v3/api/app/delEnergyRecord
+* https//ak.myappkettle.com/v3/api/app/delUserFavourites
+* https//ak.myappkettle.com/v3/api/app/editUserInfo
+* https//ak.myappkettle.com/v3/api/app/forgotPassWord
+* https//ak.myappkettle.com/v3/api/app/getEnergyRecord
+* https//ak.myappkettle.com/v3/api/app/getMachineInfo
+* https//ak.myappkettle.com/v3/api/app/getMachineScheduleInfo
+* https//ak.myappkettle.com/v3/api/app/getMachineUserList
+* https//ak.myappkettle.com/v3/api/app/getScheduleInfo
+* https//ak.myappkettle.com/v3/api/app/getUserFavouritesList
+* https//ak.myappkettle.com/v3/api/app/getUserMachineList
+* https//ak.myappkettle.com/v3/api/app/login
+* https//ak.myappkettle.com/v3/api/app/loginTripartite
+* https//ak.myappkettle.com/v3/api/app/logout
+* https//ak.myappkettle.com/v3/api/app/registerTripartite
+* https//ak.myappkettle.com/v3/api/app/sendAccountActivationEmail
+* https//ak.myappkettle.com/v3/api/app/setMachineInfo
+* https//ak.myappkettle.com/v3/api/app/setUserMachineBinding
+* https//ak.myappkettle.com/v3/api/app/setUserMachineCloudIp
+* https//ak.myappkettle.com/v3/api/app/setUserMachineUnBinding
+* https//ak.myappkettle.com/v3/api/app/signup
+* https//ak.myappkettle.com/v3/api/app/unbundlingTripartite
+* https//ak.myappkettle.com/v3/api/app/updateUserFavourites
