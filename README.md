@@ -165,8 +165,12 @@ TBC
 
 The Connectivity between kettle and the "cloud" seems to be provided by the "jingxuncloud".
 The app establishes a connection to query.jingxuncloud.com:6001.
-The traffic is AES encrypted, but jingxuncloud ships the secrets with the app and thus can be trivially extracted.
-Thereafter the traffic can be trivially captured with tcpdump and displayed with the class Jingxuncloud.
+The traffic is AES encrypted, but jingxuncloud ships the secrets with the app and are available within the apk file.
+The traffic may be captured with tcpdump 
+
+tcpdump -s1600 -w/tmp/kettle.tcp port 6001
+
+An example decryption implementation is implemented in the class Jingxuncloud in this repository
 
 Example:
 
