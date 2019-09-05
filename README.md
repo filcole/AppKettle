@@ -160,3 +160,16 @@ TBC
 * https://ak.myappkettle.com/v3/api/app/signup
 * https://ak.myappkettle.com/v3/api/app/unbundlingTripartite
 * https://ak.myappkettle.com/v3/api/app/updateUserFavourites
+
+## IoT CLoud
+
+The Connectivity between kettle and the "cloud" seems to be provided by the "jingxuncloud".
+The app establishes a connection to query.jingxuncloud.com:6001.
+The traffic is AES encrypted, but jingxuncloud ships the secrets with the app and thus can be trivially extracted.
+Thereafter the traffic can be trivially captured with tcpdump and displayed with the class Jingxuncloud.
+
+Example:
+
+Message: "{"app_cmd":"101","list":["GD0-12900-892c"]}"
+Response: "{"wifi_cmd":"101","list":["GD0-12900-892c"],"serverip":["52.29.217.226"]}"
+
