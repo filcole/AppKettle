@@ -175,5 +175,6 @@ An example decryption implementation is implemented in the class Jingxuncloud in
 Example:
 
 Message: "{"app_cmd":"101","list":["GD0-12900-892c"]}"
+
 Response: "{"wifi_cmd":"101","list":["GD0-12900-892c"],"serverip":["52.29.217.226"]}"
 
