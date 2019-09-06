@@ -218,3 +218,5 @@ Currently unknown:
 * does the kettle accept such messages itself?
 * Are they encoded the same way?
 * Is there any authentication on the jingxuncloud at all? :)
+
+An example code is in this repository ("transform.go" and java version "Jnigxuncloud.java")
