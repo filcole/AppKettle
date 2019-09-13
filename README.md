@@ -1,3 +1,6 @@
+
+
+
 # AppKettle
 
 This readme documents the AppKettle API as at 04/01/2017
@@ -178,3 +181,42 @@ Message: "{"app_cmd":"101","list":["GD0-12900-892c"]}"
 
 Response: "{"wifi_cmd":"101","list":["GD0-12900-892c"],"serverip":["52.29.217.226"]}"
 
+
+## Dissection of the protocol:
+1) Tcpdump the app
+
+ * Found Traffic to ak.myappkettle.com and query.jingxuncloud.com
+### Analysis of ak.myappkettle.com
+ * Installed apk on emulator
+ * Installed ca certificate
+ * Proxy ak.myappkettle.com with own certificate
+ * Read traffic
+ * Traffic is not very interesting.. (for example: userprofile, babybottle etc)
+### Analysis of query.jingxuncloud.com
+ * Courtesy of Googling: provider of IoT Hardware (oh!) 
+ * Traffic on Ports 6001/6002
+ * Created Proxy (golang httputil.ReverseProxy) for both ports
+ * Found plain http - yeah ;)
+ * message/response bodies are not cleartext
+ * Apktool & grep found two “random” variables in the code and string a "aes/cbc/nopadding” right next to it ;) 
+ * Decoding using the random variables as IV & key for aes transforms message & responses into plaintext
+ * One of the responses included a “serverip”:
+   `{"wifi_cmd":"101","list":["GD0-12900-892c"],"serverip":["52.29.217.226"]}`
+  * Changed response on-the fly to serverip of a local address
+* Transmission now goes via port 6002 6002
+*  it does not appear to be http
+* traffic on port 6002 is obfuscated in heartbeat and non-heatbeat messages.
+* The non-heartbeat messages go through the same conversion in AesUtils: 
+
+**and it gives me the desired result:**
+
+    {"wifi_cmd":"201","imei":"GD0-12900-892c","SubDev":"00","data3":"aa00180300000000000000f1360000c8000400005764022e000006"}', Uid=201}
+
+Note the number 57, that's the temperature (in hex, celsius)
+
+Currently unknown:
+* does the kettle accept such messages itself?
+* Are they encoded the same way?
+* Is there any authentication on the jingxuncloud at all? :)
+
+An example code is in this repository ("transform.go" and java version "Jnigxuncloud.java")
